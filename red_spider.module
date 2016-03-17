@@ -1,0 +1,33 @@
+<?php
+/**
+ * views for archer's website
+ * red_spider
+ */
+
+
+/**
+ * Implements hook_help().
+ *
+ * Displays help and module information.
+ *
+ * @param path
+ *   Which path of the site we're using to display help
+ * @param arg
+ *   Array that holds the current path as returned from arg() function
+ */
+function red_spider_help($path, $arg) {
+  switch ($path) {
+    case "admin/help#red_spider":
+      return '<p>' . t("The views for Archer's website") . '</p>';
+      break;
+  }
+}
+
+// register the views api
+function red_spider_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'red_spider') . '/views',
+    'template path' => drupal_get_path('module', 'red_spider') . '/views/templates',
+  );
+}
